@@ -5,6 +5,14 @@
   "projects": {
     "wolf-blockchain-ui": {
       "projectType": "application",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "br": {
+            "translation": ""
+          }
+        }
+      },
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
@@ -14,13 +22,16 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/wolf-blockchain-ui",
+            "localize": true,
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
+              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -75,10 +86,12 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
+              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -92,5 +105,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "ea3f739a-a983-4dd6-8654-c71d51d90f8c"
   }
 }

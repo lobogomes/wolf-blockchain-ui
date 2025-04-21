@@ -1,0 +1,12 @@
+aside {
+  animation: 2s infinite alternate slide-in;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(15rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

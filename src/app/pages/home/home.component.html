@@ -1,0 +1,59 @@
+<app-home-toolbar></app-home-toolbar>
+
+<div class="min-h-screen mt-12 text-center flex flex-col items-center overflow-hidden gap-6 md:gap-8 lg:gap-12 px-4 md:px-6 lg:px-12 py-8 md:py-12 lg:py-16">
+  <div class="galaxy-background">
+    <div class="flex flex-col items-center gap-4">
+      <div class="hero-title gradient-text">{{ heroTitle }}</div>
+      <img src="/assets/images/hand.png" alt="Wolf UI" class="w-64">
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center gap-2">
+    <span class="gradient-text text-2xl font-semibold">{{ heroSubtitle }}</span>
+    <span class="animate-bounce h-8 w-8 rounded-full inline-flex items-center justify-center">
+      <i class="iconsax white" icon-name="arrow-down"></i>
+    </span>
+  </div>
+
+  <!-- Primeira seção de cards -->
+  <div class="flex flex-wrap justify-center gap-4 mt-8 pt-20">
+    <div *ngFor="let card of featureCards"
+         pAnimateOnScroll
+         [once]="false"
+         enterClass="animate-enter fade-in-10 slide-in-from-t-12 animate-duration-1000"
+         leaveClass="animate-leave fade-out-0"
+         class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-72 rounded-2xl p-6 gap-2"
+    >
+      <div class="rounded-full w-12 h-12 flex items-center justify-center">
+        <i class="iconsax primary" [attr.icon-name]="card.icon"></i>
+      </div>
+      <span class="text-2xl font-bold">{{ card.title }}</span>
+      <span class="text-muted-color text-center text-sm">{{ card.description }}</span>
+    </div>
+  </div>
+
+  <!-- Seção estatísticas -->
+  <div class="flex flex-wrap justify-center gap-4 mt-12">
+    <div *ngFor="let stat of statsCards"
+         pAnimateOnScroll
+         [once]="false"
+         enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
+         class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-72 rounded-2xl p-6 gap-2"
+    >
+      <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">{{ stat.value }}</span>
+      <span class="text-2xl font-bold">{{ stat.title }}</span>
+      <span class="text-center text-sm">{{ stat.description }}</span>
+    </div>
+  </div>
+
+  <!-- Seção final -->
+  <div pAnimateOnScroll [once]="false" enterClass="animate-enter fade-in-10 slide-in-from-t-12 animate-duration-1000" class="mt-12">
+    <h2 class="text-4xl font-bold" style="color: var(--primary)">{{ footTitle }}</h2>
+    <p class="text-gray-400 text-lg max-w-2xl mx-auto mt-4">{{ footSubtitle }}</p>
+    <div class="flex justify-center gap-4 mt-6">
+      <button pButton type="button" (click)="navigateTo('/auth/register')" class="button-text">TIME TO RISE
+      <i class="iconsax white" icon-name="arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</div>

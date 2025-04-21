@@ -1,0 +1,10 @@
+<header class="toolbar">
+  <div class="flex flex-1 gap-6 items-center">
+    <i (click)="onClickSidebarIcon()" class="iconsax white cursor-pointer" icon-name="hamburger-menu"></i>
+    <div class="text-xl font-bold gradient-text">WolfChain</div>
+  </div>
+  <nav class="hidden md:flex gap-6 text-sm">
+    <a routerLink="/dashboard" routerLinkActive="text-[var(--primary)]">Dashboard</a>
+    <a routerLink="/settings" routerLinkActive="text-[var(--primary)]">Settings</a>
+  </nav>
+</header>

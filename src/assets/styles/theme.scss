@@ -1,0 +1,67 @@
+:root {
+  /* Wolf Blockchain Theme Colors */
+
+  --primary: #ff1fc7; /* Rosa principal */
+  --primary-hover: #ff4fd4;
+  --primary-active: #cc1aa3;
+
+  --p-primary-color: var(--primary);
+  --primary-color-text: var(--primary);
+  --secondary-color-text: var(--black);
+  --contrast-color-text: var(--white);
+
+  /* Primary Rosa Neon */
+  --primary-50: #fef1fb;
+  --primary-100: #fee5f9;
+  --primary-200: #ffcaf7;
+  --primary-300: #ff00c1;
+  --primary-400: #ff63df;
+  --primary-500: #ff1fc7; /* Principal */
+  --primary-600: #f012ae;
+  --primary-700: #d1058e;
+  --primary-800: #ad0775;
+  --primary-900: #8f0c63;
+  --primary-950: #580039;
+
+  --success: #a0e548; /* Verde sucesso */
+  --success-hover: #bff078;
+  --success-active: #82c336;
+
+  --warn: #f69e45; /* Laranja aviso */
+  --warn-hover: #f9b76c;
+  --warn-active: #d07c25;
+
+  --danger: #e42b56; /* Vermelho erro */
+  --danger-hover: #ec5c7b;
+  --danger-active: #b81f40;
+
+  --info: #38bdf8; /* Azul informativo */
+  --info-hover: #7dd3fc;
+  --info-active: #0ea5e9;
+
+  --help: #c084fc; /* Lilás de ajuda */
+  --help-hover: #d8b4fe;
+  --help-active: #a855f7;
+
+  --neutral: #64748b; /* Cinza secundário */
+  --neutral-hover: #94a3b8;
+  --neutral-active: #475569;
+
+  --white: var(--p-surface-300);
+  --black: var(--p-surface-900);
+
+  /** Wolf Blockchain Fonts */
+  --font-primary: 'Outfit', sans-serif;
+
+  .primary {
+    color: var(--primary);
+  }
+
+  .white {
+    color: var(--white);
+  }
+
+  .black {
+    color: var(--black);
+  }
+}

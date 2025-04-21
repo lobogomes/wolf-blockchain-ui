@@ -1,0 +1,16 @@
+<div class="min-h-screen p-8 flex flex-col items-center gap-12">
+  <h2 class="text-3xl font-bold" style="color: var(--neutral-active)">Color Palette</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+
+    <!-- Lista de cores -->
+    <div *ngFor="let color of colors" class="flex flex-col gap-2 items-center">
+      <div class="w-32 h-32 rounded-lg shadow-lg" [style.background]="color.variable"></div>
+      <div class="text-center">
+        <div class="font-bold">{{ color.name }}</div>
+        <div class="text-xs text-gray-400">{{ color.variable }}</div>
+      </div>
+    </div>
+
+  </div>
+</div>

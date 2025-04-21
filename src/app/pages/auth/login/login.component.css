@@ -1,0 +1,12 @@
+.button-text i, .button-text-neutral i {
+  font-size: 16px;
+  color: var(--primary);
+  visibility: collapse;
+  left: 0;
+  position: absolute;
+}
+
+.button-text:hover i, .button-text-neutral:hover i {
+  visibility: visible;
+}
+

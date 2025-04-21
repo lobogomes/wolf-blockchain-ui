@@ -1,0 +1,71 @@
+:host {
+  @keyframes slidedown-icon {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(20px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .slidedown-icon {
+    animation: slidedown-icon;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+
+  .box {
+    background-image: radial-gradient(var(--primary-300), var(--primary-600));
+    border-radius: 50% !important;
+    color: var(--primary-color-text);
+  }
+}
+
+/****** ANIMATED BACKGROUND *******/
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 270deg;
+  inherits: false;
+}
+
+.galaxy-background {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  margin-inline: auto;
+  min-height: 80vh;
+  width: min(100%, 600px);
+
+}
+
+.galaxy-background::before {
+  content: '';
+  position: absolute;
+  opacity: 0.3;
+  inset: 0;
+  z-index: -1;
+  background-image: conic-gradient(from var(--angle), var(--primary-950), var(--primary), var(--primary-400));
+  background-position: -100px -200px;
+  background-repeat: no-repeat;
+  background-size: 200% 400%;
+  filter: blur(90px) opacity(0.7);
+  border-radius: 50%;
+  animation: galaxy-move 12s linear infinite;
+  background-blend-mode: screen, lighten;
+  pointer-events: none;
+}
+
+@keyframes galaxy-move {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}

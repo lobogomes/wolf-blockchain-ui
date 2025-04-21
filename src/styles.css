@@ -1,1 +1,364 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./assets/styles/theme.scss";
+@import "primeicons/primeicons.css";
+@import "tailwindcss";
+
+@plugin "tailwindcss-primeui";
+
+body {
+  font-family: var(--font-primary), sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/****** NAVS *****/
+.toolbar {
+  @apply fixed top-0 left-0 right-0 flex items-center justify-between px-8 h-12 bg-[var(--black)] shadow-md z-50
+}
+
+/****** BUTTONS *****/
+
+
+a:hover, a:active, i:hover, i:active, i:focus {
+  color: var(--primary);
+}
+
+.button-text {
+  @apply bg-transparent border-none shadow-none
+  text-sm transition-all duration-300 text-[var(--white)];
+
+  &:hover,
+  &:focus {
+    @apply text-primary bg-transparent shadow-none border-none;
+  }
+}
+
+/* Variante para botões secundários */
+.button-text-secondary {
+  @apply text-primary hover:text-[var(--white)] active:text-[var(--white)] focus:text-[var(--white)];
+}
+
+.button-text-neutral {
+  @apply bg-transparent border-none shadow-none
+  text-sm transition-all duration-300 text-[var(--white)];
+  color: var(--neutral);
+  font-size: 12px;
+
+  &:hover {
+    @apply text-primary bg-transparent shadow-none border-none;
+  }
+}
+
+.button-text-animated {
+  @apply bg-transparent border-none shadow-none text-sm transition-all duration-300 text-[var(--white)];
+
+  &:hover,
+  &:focus {
+    @apply text-primary bg-transparent shadow-none border-none;
+  }
+
+  &:hover .arrow-icon {
+    transform: scaleX(1.6); /* Aumenta no hover */
+  }
+}
+
+.arrow-icon {
+  @apply inline-flex relative items-center justify-center;
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  position: relative;
+  transition: transform 0.4s ease;
+  transform-origin: left;
+  animation: pulse-arrow 2s infinite ease-in-out;
+}
+
+/* Linha principal da seta */
+.shaft {
+  @apply absolute bg-current;
+  width: 24px;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* Cabecinha da seta (o bico) */
+.head {
+  @apply absolute bg-current;
+  width: 8px;
+  height: 2px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) rotate(45deg);
+  transform-origin: center;
+}
+
+.head::after {
+  content: "";
+  @apply absolute bg-current;
+  width: 8px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+
+/* Pulsação leve da seta */
+@keyframes pulse-arrow {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.2);
+  }
+}
+
+/****** GRADIENT TEXTS *******
+(see more on https://developer.chrome.com/docs/css-ui/access-colors-spaces#meet_the_new_web_color_spaces) */
+
+
+/* Animação para mudar as cores suavemente */
+@keyframes move-gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* Classe para o texto com gradiente animado pulsante */
+.gradient-text {
+  animation: move-gradient 4s ease-in-out infinite alternate;
+
+  /* Gradiente aplicado ao texto */
+  background: linear-gradient(
+    to right in oklch,
+    hsl(315, 100%, 65%),
+    hsl(210, 100%, 60%),
+    hsl(300, 100%, 70%)
+  );
+
+  /* Para mostrar o gradiente só no texto */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+
+  /* Suavizar a transição */
+  background-size: 200% 200%;
+}
+
+/* Pequena pulsação (leve zoom) para dar efeito de vida */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.03);
+    filter: brightness(1.2);
+  }
+}
+
+/* Aplicando o pulsar */
+.pulse {
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+/****** ICONS *******
+(using https://iconsax.gitlab.io/i/view/)
+also see https://www.figma.com/design/6E2SQisu7hqqvfqDb1mTbe/Vuesax-icons--Community-?node-id=2898-35492&p=f&t=xduKDpHSNhIMzXNT-0 */
+
+.iconsax {
+  font-size: 24px;
+  color: black;
+
+  &.white {
+    color: var(--white);
+  }
+
+  &:hover, &:focus {
+    color: var(--primary);
+  }
+
+}
+
+/******* FONTS *******/
+
+.font-console {
+  font-family: 'RM Mono', monospace;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 6vw, 6rem); /* responsivo */
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/****** CARDS ********/
+
+.outlined-card {
+  border: 1px solid var(--primary-300);
+  box-shadow: 0 0 10px rgba(255, 0, 193, 0.3);
+}
+
+
+/****** BACKGROUNDS *******/
+
+.grid-background {
+  overflow: clip;
+}
+
+.grid-background::before {
+  content: '';
+  --size: 35px;
+  --line: color-mix(in lch, canvasText, transparent 70%);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+
+  background: linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size),
+  linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size);
+  mask: linear-gradient(-20deg, transparent 50%, white);
+  top: 0;
+  transform-style: flat;
+  pointer-events: none;
+}
+
+/******* INPUTS *******/
+.input-underline {
+  @apply bg-transparent border-0 border-b border-solid border-gray-400 rounded-none
+  focus:border-primary focus:ring-0 transition-all duration-300 w-full text-sm;
+
+  &::placeholder {
+    color: theme('colors.gray.400');
+    opacity: 1;
+  }
+}
+
+
+/******* BUTTON ARROW ANIMATED *******/
+
+.animated-arrow-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--neutral);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.animated-arrow-button:hover,
+.animated-arrow-button:focus {
+  color: var(--primary);
+}
+
+.animated-arrow-button .the-arrow {
+  position: relative;
+}
+
+.animated-arrow-button .the-arrow .shaft {
+  display: block;
+  height: 1px;
+  background-color: var(--neutral);
+  transition: all 0.3s ease;
+}
+
+.animated-arrow-button .the-arrow.-left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.animated-arrow-button .the-arrow.-left .shaft {
+  width: 0;
+}
+
+.animated-arrow-button .the-arrow.-right {
+  top: 0;
+}
+
+.animated-arrow-button .the-arrow.-right .shaft {
+  width: 48px;
+  transition-delay: 0.2s;
+}
+
+.animated-arrow-button .the-arrow.-right .shaft::before,
+.animated-arrow-button .the-arrow.-right .shaft::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 1px;
+  background-color: var(--neutral);
+  right: 0;
+  top: 0;
+  transition: all 0.3s ease;
+}
+
+.animated-arrow-button .the-arrow.-right .shaft::before {
+  transform-origin: top right;
+  transform: rotate(40deg);
+}
+
+.animated-arrow-button .the-arrow.-right .shaft::after {
+  transform-origin: bottom right;
+  transform: rotate(-40deg);
+}
+
+.animated-arrow-button .main {
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.animated-arrow-button .main .text {
+  margin-right: 1rem;
+}
+
+.animated-arrow-button:hover .the-arrow.-left .shaft {
+  width: 48px;
+  background-color: var(--primary);
+  transition-delay: 0.1s;
+}
+
+.animated-arrow-button:hover .the-arrow.-left .shaft::before,
+.animated-arrow-button:hover .the-arrow.-left .shaft::after {
+  width: 8px;
+  background-color: var(--primary);
+  transition-delay: 0.1s;
+}
+
+.animated-arrow-button:hover .main {
+  transform: translateX(64px);
+}
+
+.animated-arrow-button:hover .the-arrow.-right .shaft {
+  width: 0;
+  transform: translateX(200%);
+  transition-delay: 0s;
+}
+
+.animated-arrow-button:hover .the-arrow.-right .shaft::before,
+.animated-arrow-button:hover .the-arrow.-right .shaft::after {
+  width: 0;
+  transform: rotate(0);
+  transition-delay: 0s;
+}
+

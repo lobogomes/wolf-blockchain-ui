@@ -1,0 +1,38 @@
+<div class="grid-background">
+  <div class="flex flex-col items-center justify-center gap-4 md:gap-8 lg:gap-12">
+    <div (click)="navigateTo('')"
+         class="gradient-text text-2xl font-bold mt-4 md:mt-8 cursor-pointer">
+      WolfChain
+    </div>
+    <div class="p-8 shadow-lg rounded-2xl w-full max-w-md outlined-card font-console">
+      <h5 class="font-bold mb-8 text-center text-primary">hello,</h5>
+      <div class="flex flex-col gap-8">
+        <p-floatlabel>
+          <input class="input-underline" pInputText type="text"/>
+          <label>username</label>
+        </p-floatlabel>
+        <div class="flex flex-col gap-0.5 justify-items-start">
+          <p-floatlabel>
+            <input class="input-underline" pInputText type="password"/>
+            <label>password</label>
+          </p-floatlabel>
+          <span>
+            <button (click)="navigateTo('/auth/register')" class="button-text-neutral pl-0" pButton type="button">
+            I forgot my password!
+          </button>
+          </span>
+        </div>
+        <div class="flex flex-col gap-3 mt-4">
+          <button (click)="navigateTo('')" class="button-text text-lg" pButton>
+            <i class="iconsax" icon-name="chevron-right"></i>
+            login
+          </button>
+          <button (click)="navigateTo('/auth/register')" class="button-text-neutral" pButton size="small" type="button">
+            <i class="iconsax" icon-name="chevron-right"></i>
+            don't have an account? create here
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

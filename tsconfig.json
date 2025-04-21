@@ -3,6 +3,24 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@core-constants/*": ["app/core/constants/*"],
+      "@core-enums/*": ["app/core/enums/*"],
+      "@core-guards/*": ["app/core/guards/*"],
+      "@core-interceptors/*": ["app/core/interceptors/*"],
+      "@core-models/*": ["app/core/models/*"],
+      "@core-services/*": ["app/core/services/*"],
+      "@shared-components/*": ["app/shared/components/*"],
+      "@shared-directives/*": ["app/shared/directives/*"],
+      "@shared-pipes/*": ["app/shared/pipes/*"],
+      "@shared-utils/*": ["app/shared/utils/*"],
+      "@shared-validators/*": ["app/shared/validators/*"],
+      "@pages/*": ["app/pages/*"],
+      "@public/*": ["../public/*"],
+      "@assets/*": ["assets/*"]
+    },
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,

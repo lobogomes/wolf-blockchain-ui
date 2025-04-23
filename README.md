@@ -117,5 +117,5 @@ For questions or collabs:
       </td>
     </tr>
   </table>
-</div>](https://www.linkedin.com/in/amandalobogomes)
+</div>
 

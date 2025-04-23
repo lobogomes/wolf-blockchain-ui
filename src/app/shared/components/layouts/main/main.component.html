@@ -1,11 +1,9 @@
 <div class="flex flex-col min-h-screen">
-  <app-toolbar (toggleSidebar)="toggleSidebar($event)"></app-toolbar>
-  <div class="flex flex-1 mt-12">
-    <app-sidebar
-      [showSidebar]="showSidebar"
-    ></app-sidebar>
-    <main class="flex-1 p-6">
-      <router-outlet></router-outlet>
-    </main>
-  </div>
+    <app-toolbar (toggleSidebar)="toggleSidebar($event)"></app-toolbar>
+    <div class="flex flex-1">
+        <app-sidebar></app-sidebar>
+        <main class="flex-1 p-6">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
 </div>

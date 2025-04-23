@@ -1,10 +1,22 @@
-<header class="toolbar">
-  <div class="flex flex-1 gap-6 items-center">
-    <i (click)="onClickSidebarIcon()" class="iconsax white cursor-pointer" icon-name="hamburger-menu"></i>
-    <div class="text-xl font-bold gradient-text">WolfChain</div>
-  </div>
-  <nav class="hidden md:flex gap-6 text-sm">
-    <a routerLink="/dashboard" routerLinkActive="text-[var(--primary)]">Dashboard</a>
-    <a routerLink="/settings" routerLinkActive="text-[var(--primary)]">Settings</a>
-  </nav>
-</header>
+<p-toolbar class="bg-[var(--black)]">
+    <ng-template #start>
+        <button (click)="onClickSidebarIcon()" pButtonIcon type="button">
+            <i class="iconsax white cursor-pointer"
+               icon-name="hamburger-menu"></i>
+        </button>
+    </ng-template>
+    <ng-template #center>
+        <div class="text-xl font-bold gradient-text">WolfChain</div>
+    </ng-template>
+    <ng-template #end>
+        <div class="flex gap-4 items-center pr-4">
+            <div class="flex flex-col gap-1">
+                <h5 class="text-sm font-bold text-white">hello,</h5>
+                <h2 class="font-bold text-white">Amanda</h2>
+            </div>
+            <p-avatar [style]="{ width: '32px', height: '32px' }"
+                      image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png">
+            </p-avatar>
+        </div>
+    </ng-template>
+</p-toolbar>

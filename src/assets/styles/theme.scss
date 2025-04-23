@@ -47,11 +47,16 @@
   --neutral-hover: #94a3b8;
   --neutral-active: #475569;
 
+  --p-surface-900: #131213;
+
   --white: var(--p-surface-300);
   --black: var(--p-surface-900);
 
-  /** Wolf Blockchain Fonts */
+  --background: var(--p-surface-900);
+
   --font-primary: 'Outfit', sans-serif;
+  --p-toolbar-background: var(--background);
+  --p-drawer-background: var(--background);
 
   .primary {
     color: var(--primary);

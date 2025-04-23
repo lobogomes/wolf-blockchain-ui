@@ -1,18 +1,18 @@
 import { Component, output } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Toolbar } from 'primeng/toolbar';
+import { Avatar } from 'primeng/avatar';
+import { ButtonIcon } from 'primeng/button';
 
 @Component({
   selector: 'app-toolbar',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [Toolbar, Avatar, ButtonIcon],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.css',
 })
 export class ToolbarComponent {
-  showSidebar = false;
   toggleSidebar = output<boolean>();
 
   onClickSidebarIcon() {
-    this.showSidebar = !this.showSidebar;
-    this.toggleSidebar.emit(this.showSidebar);
+    this.toggleSidebar.emit(true);
   }
 }

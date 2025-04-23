@@ -1,9 +1,51 @@
 <div class="flex flex-col min-h-screen">
     <app-toolbar (toggleSidebar)="toggleSidebar($event)"></app-toolbar>
+
     <div class="flex flex-1">
         <app-sidebar></app-sidebar>
-        <main class="flex-1 p-6">
+
+        <main class="flex-1 flex flex-col">
             <router-outlet></router-outlet>
+
+            <!-- Footer -->
+            <footer class="bg-[var(--black)]">
+                <div class="border-t border-[var(--primary-975)] w-full"></div>
+
+                <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 py-10 px-6">
+                    <div>
+                        <h3 class="text-lg font-bold mb-4 text-white">WolfChain</h3>
+                        <p class="text-sm text-gray-400">
+                            WolfChain is a blockchain technology company focused on delivering secure, scalable, and
+                            decentralized solutions for the future of finance.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-4 text-white">Contact</h3>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><i class="pi pi-envelope mr-2"></i>{{ 'contact@wolfchain.dev' }}</li>
+                            <li><i class="pi pi-phone mr-2"></i> +1 (555) 123-4567</li>
+                            <li><i class="pi pi-map-marker mr-2"></i> 123 Crypto Street, San Francisco, CA</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-4 text-white">Quick Links</h3>
+                        <ul class="text-sm text-gray-400 space-y-2">
+                            <li><a class="transition-colors duration-200 hover:text-primary-300" href="#">About Us</a>
+                            </li>
+                            <li><a class="transition-colors duration-200 hover:text-primary-300" href="#">Services</a>
+                            </li>
+                            <li><a class="transition-colors duration-200 hover:text-primary-300" href="#">Projects</a>
+                            </li>
+                            <li><a class="transition-colors duration-200 hover:text-primary-300" href="#">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border-t border-[var(--primary-975)] pt-6 pb-4 text-center text-sm text-primary">
+                    © {{ currentYear }} WolfChain. All rights reserved.
+                </div>
+            </footer>
         </main>
     </div>
 </div>

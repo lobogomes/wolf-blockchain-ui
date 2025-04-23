@@ -6,12 +6,15 @@
         </button>
     </ng-template>
     <ng-template #center>
-        <div class="text-xl font-bold gradient-text">WolfChain</div>
+        <div class="flex gap-2 items-center">
+            <div class="text-xl font-bold gradient-text">WolfChain</div>
+            <img alt="Wolf UI" class="w-7" src="/assets/images/logo-pink.png">
+        </div>
     </ng-template>
     <ng-template #end>
         <div class="flex gap-4 items-center pr-4">
-            <div class="flex flex-col gap-1">
-                <h5 class="text-sm font-bold text-white">hello,</h5>
+            <div class="flex flex-row items-center justify-center gap-1">
+                <h5 class="text-sm  text-white">hello,</h5>
                 <h2 class="font-bold text-white">Amanda</h2>
             </div>
             <p-avatar [style]="{ width: '32px', height: '32px' }"

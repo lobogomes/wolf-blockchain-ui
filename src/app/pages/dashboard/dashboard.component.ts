@@ -7,10 +7,19 @@ import { BlockService } from '@core-services/block.service';
 import { TransactionService } from '@core-services/transaction.service';
 import { ChartModule } from 'primeng/chart';
 import { DatePipe } from '@angular/common';
+import { ButtonDirective } from 'primeng/button';
+import { IconWolfComponent } from '@shared-components/icons/icon-wolf/icon-wolf.component';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [Card, ChartModule, TableModule, DatePipe],
+  imports: [
+    Card,
+    ChartModule,
+    TableModule,
+    DatePipe,
+    ButtonDirective,
+    IconWolfComponent,
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
@@ -23,8 +32,10 @@ export class DashboardComponent implements OnInit {
     datasets: [
       {
         label: 'Transactions',
+        data: [56, 55, 60, 65, 59, 80, 81],
         fill: false,
         tension: 0.4,
+        borderColor: '#FF1FC7FF',
       },
     ],
   };
@@ -34,6 +45,26 @@ export class DashboardComponent implements OnInit {
     plugins: {
       legend: {
         display: false,
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: '#353535',
+        },
+        grid: {
+          color: '#353535',
+          drawBorder: false,
+        },
+      },
+      y: {
+        ticks: {
+          color: '#353535',
+        },
+        grid: {
+          color: '#353535',
+          drawBorder: false,
+        },
       },
     },
   };

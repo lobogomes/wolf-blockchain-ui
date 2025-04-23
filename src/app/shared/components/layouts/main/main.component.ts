@@ -12,6 +12,7 @@ import { RouterOutlet } from '@angular/router';
 export class MainComponent {
   sidebar = viewChild(SidebarComponent);
   showSidebar: boolean = false;
+  currentYear = new Date().getFullYear();
 
   toggleSidebar(value: boolean) {
     this.showSidebar = value;

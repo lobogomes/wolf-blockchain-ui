@@ -13,7 +13,7 @@ export class UserService {
       email: 'amanda@gmail.com',
       avatar:
         'https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png',
-      balance: '50 WOLF',
+      balance: '50',
       historic: [
         {
           date: '2021-01-01',

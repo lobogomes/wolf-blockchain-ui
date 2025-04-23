@@ -1,49 +1,123 @@
 <div class="flex flex-col min-h-screen gap-8 p-6">
+    <!-- Cards principais -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-
-        <p-card class="flex flex-col items-center justify-center text-center gap-4">
-            <div class="text-xl font-bold">Your Balance</div>
-            <div class="text-3xl text-primary">{{ user.balance }}</div>
+        <!-- Balance -->
+        <p-card class="w-full h-full shadow-2xl text-white">
+            <div class="flex flex-col gap-4 h-full min-h-[160px]">
+                <div class="text-xl font-semibold self-center">Your Balance</div>
+                <div class="flex-1 flex justify-center items-center gap-4">
+                    <div class="text-3xl font-semibold text-primary-900">{{ user.balance }}</div>
+                    <app-icon-wolf color="#8f0c63" size="32"/>
+                </div>
+            </div>
         </p-card>
 
-        <p-card class="flex flex-col items-center justify-center text-center">
-            <div class="text-xl font-bold">Latest Block</div>
-            <div class="text-2xl mt-2"># {{ block.hash }}</div>
-            <div class="text-sm text-gray-500 mt-1">{{ block.timestamp | date: 'MMMM dd, yyyy HH:mm:ss' }}</div>
+        <!-- Latest Block -->
+        <p-card class="w-full h-full shadow-2xl text-white">
+            <div class="flex flex-col gap-4 h-full min-h-[160px]">
+                <div class="text-xl font-semibold self-center">Latest Block</div>
+                <div class="flex-1 flex flex-col justify-center items-center gap-2">
+                    <div class="text-2xl font-semibold  text-primary-900"># {{ block.hash }}</div>
+                    <div class="text-sm text-gray-200">
+                        {{ block.timestamp | date: 'MMMM dd, yyyy HH:mm:ss' }}
+                    </div>
+                </div>
+            </div>
         </p-card>
 
-        <p-card class="flex flex-col items-center justify-center text-center">
-            <div class="text-xl font-bold">Transactions</div>
-            <div class="text-2xl mt-2">+ {{ transactions.todayCount }} today</div>
+        <!-- Transactions -->
+        <p-card class="w-full h-full shadow-2xl text-white">
+            <div class="flex flex-col gap-4 h-full min-h-[160px]">
+                <div class="text-xl font-semibold self-center">Transactions</div>
+                <div class="flex-1 flex flex-col justify-center items-center gap-2">
+                    <div class="text-2xl font-semibold  text-primary-900">+ {{ transactions.todayCount }} today</div>
+                </div>
+            </div>
         </p-card>
     </div>
 
-    <div class="grid gap-6 grid-cols-1 md:lg:grid-cols-2">
+    <!-- Quick Actions -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
+        <button class="font-semibold p-button-primary" pButton size="large">
+            <i class="iconsax" icon-name="wallet-open"></i>
+            <span>Buy</span>
+        </button>
+        <button class="font-semibold p-button-primary" pButton size="large">
+            <i class="iconsax" icon-name="send-diagonal-square"></i>
+            <span>Send</span>
+        </button>
+        <button class="font-semibold p-button-primary " pButton size="large">
+            <i class="iconsax" icon-name="wallet-open-change"></i>
+            <span>Swap</span>
+        </button>
+        <button class="font-semibold p-button-primary" pButton size="large">
+            <i class="iconsax" icon-name="star-speed"></i>
+            <span>Stake</span>
+        </button>
+    </div>
 
-        <p-card header="Transactions Activity">
-            <p-chart [data]="transactionsChartData" [options]="transactionsChartOptions" type="line"></p-chart>
+    <!-- Market Overview -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+        <p-card [style]="{'background-color': '#0b0b0b'}" class="shadow-2xl">
+            <div class="flex flex-col gap-2 items-center">
+                <div class="text-surface-400">BTC Price</div>
+                <div class="text-2xl font-bold text-surface-600 ">$28,400</div>
+            </div>
+        </p-card>
+        <p-card [style]="{'background-color': '#0b0b0b'}" class="shadow-2xl">
+            <div class="flex flex-col gap-2 items-center">
+                <div class="text-surface-400">ETH Gas</div>
+                <div class="text-2xl font-bold text-surface-600 ">43 Gwei</div>
+            </div>
+        </p-card>
+        <p-card [style]="{'background-color': '#0b0b0b'}" class="shadow-2xl">
+            <div class="flex flex-col gap-2 items-center">
+                <div class="text-surface-400">Global Market Cap</div>
+                <div class="text-2xl font-bold text-surface-600">$1.2T</div>
+            </div>
+        </p-card>
+    </div>
+
+    <!-- Gráficos e tabela -->
+    <div class="grid gap-6 grid-cols-1 md:grid-cols-2">
+        <p-card class="w-full shadow-2xl">
+            <ng-template #header>
+                <h1 class="text-2xl font-semibold text-primary-900 p-6">Transactions Activity</h1>
+            </ng-template>
+            <div class="w-full flex flex-col p-6" style="min-height: 500px">
+                <p-chart [data]="transactionsChartData" [options]="transactionsChartOptions" height="500px"
+                         type="line"></p-chart>
+            </div>
         </p-card>
 
-        <p-card header="Recent Transactions">
-            <p-table [paginator]="false" [scrollHeight]="'300px'" [scrollable]="true" [value]="transactions.data">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Hash</th>
-                        <th>From</th>
-                        <th>To</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                    </tr>
-                </ng-template>
-                <ng-template let-transaction pTemplate="body">
-                    <tr>
-                        <td>{{ transaction.hash }}</td>
-                        <td>{{ transaction.from }}</td>
-                        <td>{{ transaction.to }}</td>
-                        <td>{{ transaction.amount }}</td>
-                        <td>{{ transaction.date | date: 'dd MMMM' }}</td>
-                </ng-template>
-            </p-table>
+        <p-card class="w-full shadow-2xl">
+            <ng-template #header>
+                <h1 class="text-2xl font-semibold  text-primary-900 p-6">Recent Transactions</h1>
+            </ng-template>
+            <div class="min-h-[500px] w-full flex flex-col p-6">
+                <div class="flex-1 w-full">
+                    <p-table [paginator]="false" [tableStyle]="{ 'min-height': '500px' }" [value]="transactions.data">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Hash</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template let-transaction pTemplate="body">
+                            <tr>
+                                <td>{{ transaction.hash }}</td>
+                                <td>{{ transaction.from }}</td>
+                                <td>{{ transaction.to }}</td>
+                                <td>{{ transaction.amount }}</td>
+                                <td>{{ transaction.date | date: 'dd MMMM HH:mm:ss' }}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
         </p-card>
     </div>
 </div>

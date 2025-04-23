@@ -88,5 +88,34 @@ For questions or collabs:
 8lobogomes@gmail.com
 
 ---
+---
 
-<img src="https://github.com/lobogomes.png" width="32" height="32" style="border-radius: 50%; vertical-align: middle; margin-right: 8px;" /> Made with ❤️ by Amanda Lobo — 2025
+## 🤝 Contributing
+Pull requests are welcome! Feel free to fork and suggest improvements.
+
+---
+
+## 📬 Contact
+For questions or collabs:
+- amandalobo.dev@example.com
+
+---
+
+<div align="center">
+  <table>
+    <tr>
+      <td>
+        <img src="https://github.com/lobogomes.png" width="100" height="100" style="border-radius: 50%;" />
+      </td>
+      <td style="vertical-align: middle; padding-left: 16px;">
+        <p><strong>Made with ❤️ by Amanda Lobo — 2025</strong></p>
+        <p>
+          <a href="https://www.linkedin.com/in/amandalobogomes">
+            <img src="https://img.shields.io/badge/-LinkedIn-blue?logo=linkedin&logoColor=white&style=flat-square" />
+          </a>
+        </p>
+      </td>
+    </tr>
+  </table>
+</div>](https://www.linkedin.com/in/amandalobogomes)
+
